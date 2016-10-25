@@ -1,0 +1,16 @@
+.menu {
+	@include edMenu(l, buttonBar);
+	li {
+		margin-left: .05em;
+		a {
+			background: dodgerblue;
+			color: white;
+			text-decoration: none;
+			font-size: 1.1em;
+			&:hover {
+				color: dodgerblue;
+				background: lighten(dodgerblue, 30%);
+			}
+		}
+	}
+}
