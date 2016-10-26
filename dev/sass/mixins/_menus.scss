@@ -1,0 +1,158 @@
+// Mixin menu horizontal básico
+@mixin menuh(
+  $fondo         : #262626,  		// Color de fondo del menu
+  $color         : white,			// Color de los enlaces
+  $hover         : rgba(#262626,.1),	// Color de fondo para el hover de los items
+  $altura        : 2.5em,			// Altura del menu (de los items)
+  $separacion    : 1em,			// Separación entre los enlaces del menu
+  $ancho-submenu : 10em			// Ancho de los submenus
+) {
+  display: table;
+  background: $fondo;
+  &, ul, li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  >li {
+    float: left;
+    position: relative;
+
+    a {
+      font-size:11px;
+      color: $color;
+      line-height: $altura;
+      display: block;
+      padding: 0 ($separacion / 2);
+      text-decoration: none;
+      text-transform:uppercase;
+      @include abcenter(img);
+      img{
+        max-width: 40px;
+        top:0px;
+        opacity: 0;
+        margin:0 auto;
+        background-color:#515151;
+        border-radius: 50%;
+        padding: 5px 9px;
+        transition: all .5s;
+      }
+      &:hover{
+        img{
+          top:-15px;
+          background-color: $hover;
+          opacity: 1;
+        }
+        span{
+          color:#41a5ff;
+        }
+      }
+    }
+  }
+  >li:nth-child(1){
+    img{
+      max-width: 40px;
+      border-radius: 50%;
+      padding: 5px 9px;
+    }
+  }
+  >li:nth-child(3){
+    img{
+      max-width: 40px;
+      border-radius: 50%;
+      padding: 8px 9px;
+    }
+  }
+  >li:nth-child(5){
+    img{
+      max-width: 40px;
+      border-radius: 50%;
+      padding: 8px 9px;
+    }
+  }
+  >li:nth-child(6){
+    img{
+      max-width: 40px;
+      border-radius: 50%;
+      padding: 8px 9px;
+    }
+  }
+  >li:nth-child(7){
+    img{
+      max-width: 40px;
+      border-radius: 50%;
+      padding: 9px 9px;
+    }
+  }
+  >li:nth-child(8){
+    img{
+      max-width: 40px;
+      border-radius: 50%;
+      padding: 9px 9px;
+    }
+  }
+}
+// Mixin menu vertical básico
+@mixin menuv(
+  $fondo   		: white,			// Color de fondo del menu
+  $color   		: #999,				// Color de los enlaces
+  $hover   		: $frm-menu-badge,	// Color de fondo en hover para los items
+  $altura  		: 2.5em,			// Altura de los items del menu
+  $padding 		: 1.5em,			// Padding de los enlaces
+  $separacion     : 4em,				// Separación entre los enlaces del menu
+  $ancho-submenu  : 10em 				// Ancho del menu (y los submenus)
+) {
+  background: $fondo;
+  display: table;
+  &, ul, li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+  li {
+
+    position: relative;
+    &:hover {
+      background: $hover;
+      > ul > li {
+        max-height: $altura;
+        overflow: visible;
+      }
+      a {
+        text-decoration: none !important;
+
+        &:hover{
+          color:white;
+        }
+      }
+      span{
+        background-color: white;
+        color:$frm-menu-badge;
+      }
+    }
+
+  }
+  // Submenus
+  ul {
+    background: $fondo;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: $ancho-submenu;
+    li {
+      max-height: 0;
+      overflow: hidden;
+      transition: all .3s;
+    }
+  }
+  a {
+    color: $color;
+    line-height: $altura;
+    display: block;
+    padding: 0 $padding;
+    text-decoration: none;
+    text-transform:uppercase;
+    font-size: 16px;
+  }
+}

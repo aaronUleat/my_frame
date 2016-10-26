@@ -1,0 +1,10 @@
+/* Aplica un color doble a un contendor */
+/*-- Usage --*/
+/*
+	two-color-bg(#ffffff, #000000, 15deg);
+*/
+/* Aplica un color doble a un boton */
+/*-- Usage --*/
+/*
+  two-color-btn(#ffffff, #000000, 15deg);
+*/

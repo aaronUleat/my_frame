@@ -1,6 +1,15 @@
-
 @import "base/_fonts";
 @import "base/_base";
-/*ed grid*/
-@import "../../node_modules/EDgrid/ed-grid";
+
+// mixins
+@import "mixins/aligns";
+@import "mixins/animations";
+@import "mixins/bg";
+@import "mixins/buttons";
+@import "mixins/forms";
+@import "mixins/images_utilis";
+@import "mixins/maps";
+@import "mixins/menus";
+@import "mixins/proportions";
+// modules
 @import "modules/_main-menu";

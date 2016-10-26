@@ -1,16 +1,12 @@
-.menu {
-	@include edMenu(l, buttonBar);
-	li {
-		margin-left: .05em;
-		a {
-			background: dodgerblue;
-			color: white;
-			text-decoration: none;
-			font-size: 1.1em;
-			&:hover {
-				color: dodgerblue;
-				background: lighten(dodgerblue, 30%);
-			}
-		}
-	}
+
+
+.main-menu {
+  @include menuh(
+          $fondo         : lighten(black, 30%),  		        // Color de fondo del menu
+          $color         : salmon,			    // Color de los enlaces
+          $hover         : dodgerblue,	// Color de fondo para el hover de los items
+          $altura        : 3.5em,			    // Altura del menu (de los items)
+          $separacion    : 5em,			        // Separación entre los enlaces del menu
+          $ancho-submenu : 10em			         // Ancho de los submenus
+  );
 }

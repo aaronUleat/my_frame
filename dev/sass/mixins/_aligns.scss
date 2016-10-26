@@ -1,0 +1,107 @@
+// --------------------------------------------------------------------------------------------------------------
+
+/* CLEARFIX */
+@mixin clearfix {
+  &:before,&:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+  }
+  &:after {
+    clear: both;
+  }
+}
+/*-- Usage --*/
+/*
+  @include clearfix;
+*/
+
+// --------------------------------------------------------------------------------------------------------------
+
+@mixin abcenter($item){
+  position: relative;
+  #{$item},.#{$item} {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    -webkit-transform: translateY(-50%) translateX(-50%);
+    -ms-transform: translateY(-50%) translateX(-50%);
+    margin: auto !important;
+  }
+}
+@mixin center-element {
+  display: block;
+  clear: both;
+  float: none !important;
+  margin-right: auto !important;
+  margin-left: auto !important;
+}
+@mixin add-padd($padding-left:15px, $padding-right:15px) {
+  padding-left: $padding-left;
+  padding-right: $padding-right;
+}
+
+@mixin remove-padd {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+@mixin remove-margin {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+@mixin add-margin($margin-left: 15px, $margin-right: 15px) {
+  margin-left: $margin-left;
+  margin-right: $margin-right;
+}
+
+@mixin padd($padding-top, $padding-right, $padding-bottom, $padding-left) {
+  padding-top: $padding-top;
+  padding-bottom: $padding-bottom;
+  padding-right: $padding-right;
+  padding-left: $padding-lerft;
+}
+
+
+/*MIXIN CUADRICULA*/
+
+
+@mixin grid($items,$columnas,$separacion:2%){
+  // por si el contenedor es un ul
+  @if $items == li {
+    margin     : 0;
+    padding    : 0;
+    list-style : none;
+
+    li {
+      margin-left: 0;
+    }
+  }
+
+  // Limpiar los floats para el contenedor
+  &:before, &:after {
+    clear   : both;
+    content : " ";
+    display : table;
+    width   : 100%;
+  }
+
+  & > #{$items}, & > .#{$items}{
+    float          : left;
+    width          : (100% - $separacion * ($columnas - 1)) / $columnas;
+    margin-right   : $separacion;
+    margin-bottom  : $separacion;
+
+    //Limpiar el float para el último elemento de cada fila
+    &:nth-child(#{$columnas}n){
+      margin-right : 0;
+      clear        : right;
+    }
+
+    //Limpiar el float para el primer elemento de cada fila
+    &:nth-child(#{$columnas}n+1){
+      clear        : left;
+    }
+  }
+}

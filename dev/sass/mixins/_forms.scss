@@ -1,0 +1,311 @@
+// --------------------------------------------------------------------------------
+
+// --------------------------------------------------------------------------------
+@mixin myselect {
+  display:inline-block;
+  vertical-align:middle;
+  position:relative;
+  width:100%;
+  & > select {
+    line-height:normal;
+    height:38px;
+    appearance:none;
+    width:200px;
+    border-radius:6px;
+    display:block;
+    width:100%;
+    border:1px solid #c8c8c8;
+    background:#fff repeat-x 0 0;
+    color:#9f9f9f;
+    padding:8px 20px 7px 10px;
+    margin:0;
+    line-height:normal;
+    border-radius:2px;
+    &:focus{
+      background:#fff;
+      outline:none;
+      // border-color:#369425;
+      outline:0;
+    }
+  }
+  &:after{
+    content:"";
+    position:absolute;
+    z-index:2;
+    right:11px;
+    top:50%;
+    margin-top:-3px;
+    height:0;
+    width:0;
+    border-top:4px solid gray;
+    border-left:4px solid transparent;
+    border-right:4px solid transparent;
+    pointer-events:none;
+  }
+}
+
+
+// --------------------------------------------------------------------------------
+
+@mixin mycheck {
+  input[type='checkbox'], input[type='radio'] {
+    display: none;
+  }
+  input[type='checkbox'] + label{
+    display: block;
+    // float: right;
+    margin: 0 8px 0 0;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    // box-shadow: inset 0 0px 2px rgba(0, 0, 0, 0.3), inset 0 2px 3px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(255, 255, 255, 0.9), 0 -1px 0 rgba(0, 0, 0, 0.4);
+    border-radius: 3px;
+    border: 1px solid #999;
+    cursor: pointer;
+    background: #fff ;
+    background-position: 2px center;
+  }
+  input[type='checkbox']:checked + label {
+    background: #fff;
+    background-repeat: no-repeat;
+    background-position: 2px center;
+  }
+}
+// --------------------------------------------------------------------------------
+@mixin myinput {
+  .form-control {
+    height: 40px;
+    font-size: 13px;
+    color: #333;
+    border: 1px solid #c8c8c8;
+    border-radius: 3px;
+    box-shadow: none;
+    &:focus{
+      border-color: $frm-title-bar;
+      background-color: white;
+    }
+  }
+  &.error {
+    border-color: #b94a48;
+    color: #b94a48;
+    background-color: #f8edec;
+    &::-webkit-input-placeholder { color: #b94a48 }
+    &:-moz-placeholder { color: #b94a48 }
+    &::-moz-placeholder { color: #b94a48 }
+    &:-ms-input-placeholder { color: #b94a48 }
+    &:focus{
+      border-color: #b94a48;
+      color: #b94a48;
+      background-color: #f8edec;
+    }
+  }
+}
+// --------------------------------------------------------------------------------
+
+
+@mixin border-triangle-left($triangle-size, $color) {
+  border: $triangle-size solid transparent;
+  width:  0px;
+  height: 0px;
+  border-right-color: $color;
+  float: left;
+}
+
+
+@mixin border-triangle-right($triangle-size, $color) {
+  border: $triangle-size solid transparent;
+  width:  0px;
+  height: 0px;
+  border-left-color: $color;
+  float: left;
+}
+
+// --------------------------------------------------------------------------------
+
+// --------------------------------------------------------------------------------
+
+// --------------------------------------------------------------------------------
+
+// --------------------------------------------------------------------------------
+
+// --------------------------------------------------------------------------------
+
+
+//BOOTSTRAP SELECT FORM CUSTOM ICON FONTS BEFORE AND AFTER
+//
+
+@mixin customSelect($color, $content-before, $content-after) {
+  position: relative;
+  background: transparent;
+  &::before {
+    content: $content-before;
+    font-family: 'untitled-font-7';
+    position: absolute;
+    right: 0px;
+    bottom: 5px;
+    left: 7px;
+    color: $color;
+    width: 20px;
+    font-size: 1.3em;
+  }
+
+
+  &::after {
+    content: $content-after; //
+    font-family: 'Glyphicons Halflings'; //'Glyphicons Halflings';
+    position: absolute;
+    right: 0px;
+    bottom: 5px;
+    right: 7px;
+    color: $color;
+    font-size: 1.3em;
+    z-index: -1000;
+  }
+
+
+
+  select {
+    appearance: none;
+    line-height:normal;
+    height:38px;
+    appearance:none;
+    width:200px;
+    border-radius:6px;
+    display:block;
+    width:100%;
+    border:1px solid #c8c8c8;
+    color:#9f9f9f;
+    padding:8px 20px 7px 30px;
+    margin:0;
+    line-height:normal;
+    border-radius:2px;
+    background: transparent;
+
+    &:focus{
+      background: transparent;
+      outline:none;
+      // border-color:#369425;
+      outline:0;
+    }
+  }
+}
+
+// EXAMPLE
+
+/*
+.form-group {
+  @include selectArrow(skyblue,"\e260", "\e259");
+} */
+
+//BOOTSTRAP SELECT FORM CUSTOM ICON FONTS JUST AFTER
+
+@mixin customSelectAfter($color, $content-after: "\e259") {
+  position: relative;
+  &::after {
+    content: $content-after;
+    font-family: 'Glyphicons Halflings';
+    position: absolute;
+    right: 0px;
+    bottom: 5px;
+    right: 7px;
+    color: $color;
+    font-size: 1.3em;
+    z-index: -1000;
+  }
+
+  select {
+    appearance: none;
+    line-height:normal;
+    height:38px;
+    appearance:none;
+    width:200px;
+    border-radius:6px;
+    display:block;
+    width:100%;
+    border:1px solid #c8c8c8;
+    color:#9f9f9f;
+    padding:8px 20px 7px 3px;
+    margin:0;
+    line-height:normal;
+    border-radius:2px;
+    background: transparent;
+    padding-left: 7px;
+  }
+}
+
+/*
+EXAMPLE
+.form-group {
+  @include selectArrow(skyblue);
+} */
+
+
+/// BOOTSTRAP CUSTOM INPUT INCONS
+
+@mixin customInput($color, $content-before) {
+  position: relative;
+  &::before {
+    content: $content-before;
+    font-family: 'untitled-font-7';
+    position: absolute;
+    bottom: 7px;
+    left: 5px;
+    color: $color;
+    width: 20px;
+    font-size: 1.3em;
+  }
+
+  .form-control {
+    height: 40px;
+    font-size: 13px;
+    color: #333;
+    border: 1px solid #c8c8c8;
+    border-radius: 3px;
+    box-shadow: none;
+    &:focus{
+      border-color: $frm-title-bar;
+    }
+  }
+
+  input.form-control{
+    padding-left: 30px;
+  }
+}
+
+
+// custom bootstrap textarea
+
+@mixin customTextarea($color, $content-before) {
+  position: relative;
+  &::before {
+    content: $content-before;
+    font-family: 'untitled-font-7';
+    position: absolute;
+    top: 3px;
+    left: 5px;
+    color: $color;
+    width: 20px;
+    font-size: 1.3em;
+  }
+
+  .form-control {
+    font-size: 13px;
+    color: #333;
+    border: 1px solid #c8c8c8;
+    border-radius: 3px;
+    box-shadow: none;
+    &:focus{
+      border-color: $frm-title-bar;
+    }
+  }
+
+  textarea {
+    padding-top: 5px;
+    padding-left: 30px;
+    width: 100%;
+    height: 150px;
+  }
+}
+
+
